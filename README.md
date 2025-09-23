@@ -3,7 +3,7 @@
 A full‑stack finance dashboard built with React + TypeScript (Vite) and an Express + MongoDB backend. It visualizes KPIs, products, transactions, and provides a simple revenue prediction view.
 
 ## 🚀 Live Demo
-**[View Live Demo](https://finboard-frontend.vercel.app/)**
+https://finboard-frontend.vercel.app
 
 ## Tech Stack
 - Frontend: React 18, TypeScript, Vite, MUI, Recharts, Redux Toolkit + RTK Query, Tailwind (utility classes)
@@ -106,19 +106,3 @@ Backend (`server/package.json`):
 - `npm run dev` — Start Express with nodemon
 - `npm start` — Start Express
 
-## Notes
-- CORS is enabled for development. For production, restrict origins and headers as needed.
-- The backend listens on port `3000` by default; adjust your env and client base URL accordingly.
-
-## Production Build
-
-- Frontend
-  - Set `VITE_HOST_ADDRESS` to your production backend URL.
-  - Build: `cd client && npm run build`
-  - Local preview: `npm run preview` (serves the built `dist/` folder)
-  - Deploy `client/dist/` to any static host (Netlify, Vercel, S3, etc.).
-
-- Backend
-  - Ensure `server/.env` has a production `MONGO_URL`.
-  - Run: `cd server && npm install --omit=dev && npm start`
-  - Behind a reverse proxy (e.g., Nginx), expose port 3000 or change the port in `server/index.js` (`app.listen(3000, ...)`).
