@@ -35,6 +35,27 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
+// Health check endpoint
+app.get("/health", async (req, res) => {
+  try {
+    // Check MongoDB connection
+    await mongoose.connection.db.admin().ping();
+    res.status(200).json({ 
+      status: "healthy", 
+      message: "Backend is ready",
+      timestamp: new Date().toISOString(),
+      database: "connected"
+    });
+  } catch (error) {
+    res.status(503).json({ 
+      status: "unhealthy", 
+      message: "Database connection failed",
+      timestamp: new Date().toISOString(),
+      error: error.message 
+    });
+  }
+});
+
 // routes
 app.use("/kpi", kpiRoutes);
 app.use("/product", productRoutes);
