@@ -19,7 +19,6 @@
     "express": "^4.19.2",
     "helmet": "^7.1.0",
     "mongoose": "^7.0.0",
-    "mongoose-currency": "^0.2.0",
     "morgan": "^1.10.0",
     "node-cron": "^4.2.1",
     "nodemon": "^3.1.0"
